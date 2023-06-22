@@ -1,0 +1,24 @@
+<div class="col-md-8 col-md-offset-2">
+<div class="thread-show">
+  <h2><%= @forum.thread %></h2>
+  <p class="thread-post"><b>Posted by</b> <%= @forum.user.email %>, 
+  <%= time_ago_in_words(@forum.created_at)%> ago</p>
+  <p class="thread-desc"><%= @forum.content %></p>
+
+  <h3>Comment : </h3>
+  <%= render @forum.comments %>
+
+  <h3 class="thread-reply">Replay to the thread : </h3>
+  <%= render 'comments/form' %>
+
+  <div class="links btn-group">
+  <%= link_to "Back", root_path, class: "btn btn-default" %>
+  <% if user_signed_in? %>
+    <% if @forum.user_id == current_user.id %>
+      <%= link_to "Edit", edit_forum_path(@forum), class: "btn btn-default" %>
+      <%= link_to 'Delete', forum_path(@forum), data: {turbo_method: :delete, turbo_confirm: 'Are you sure to delet this thread?'}, class: "btn btn-default" %>
+    <% end %>
+  <% end %>
+  </div>
+</div>
+</div>
