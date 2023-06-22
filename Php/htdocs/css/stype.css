@@ -1,0 +1,15 @@
+a {
+    border-style:groove;
+    border-color:black ;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+}
+input {
+    border-style:groove;
+    border-color:black ;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+}
+ 
